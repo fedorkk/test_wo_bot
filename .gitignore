@@ -1,0 +1,6 @@
+sqlite3
+test_db
+*.sublime-project
+*.sublime-workspace
+secrets.yml
+database.yml
