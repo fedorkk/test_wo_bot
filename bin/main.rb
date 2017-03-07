@@ -2,6 +2,7 @@
 require 'telegram/bot'
 require './lib/app_configurator'
 require './lib/menu'
+require './lib/timer'
 
 require './models/user'
 require './models/training'
@@ -69,12 +70,7 @@ Telegram::Bot::Client.run(config.token) do |bot|
           reply_markup: Menu.start
         )
       else
-        bot.api.send_message(
-          chat_id: message.chat.id,
-          text: "Круг: #{training.completed_rounds + 1}, осталось: "\
-                "#{training.rounds_quantity - 1 - training.completed_rounds}",
-          reply_markup: Menu.complete
-        )
+        Thread.new { RestTimer.new(bot: bot, message: message, training: training).perform }
       end
     else
       bot.api.send_message(

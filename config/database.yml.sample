@@ -1,3 +1,23 @@
+# sqlite
 adapter: sqlite3
 database: test_db
 host: localhost
+
+# postgresql
+#
+# adapter: postgresql
+# encoding: unicode
+# database: test_postgres_db
+# pool: 5
+# username: postgres_user
+# password: very_long_password
+
+# mysql
+#
+# adapter: mysql2
+# encoding: utf8
+# database: test_mysql_db
+# pool: 5
+# username: root
+# password: very_long_password
+# socket: /tmp/mysql.sock
