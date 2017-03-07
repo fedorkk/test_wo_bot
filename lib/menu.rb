@@ -9,7 +9,14 @@ class Menu
     end
 
     def new_training
-      MenuConstructor.create([['Начать тренировку'], ['Больше кругов'], ['Больше упражнений']])
+      MenuConstructor.create(
+        [
+          ['Начать тренировку'],
+          ['Больше кругов'],
+          ['Больше упражнений'],
+          ['Отдых 40с', 'Отдых 50с', 'Отдых 60с']
+        ]
+      )
     end
 
     def complete

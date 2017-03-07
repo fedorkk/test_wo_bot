@@ -12,7 +12,8 @@ class Training < ActiveRecord::Base
     "(#{pull_ups_quantity} - #{sit_ups_quantity} - #{push_ups_quantity} - #{sit_ups_quantity})\n"\
     "Количество кругов: #{rounds_quantity})\n"\
     "Всего: #{pull_ups_quantity * rounds_quantity} - #{sit_ups_quantity * rounds_quantity} - "\
-    "#{push_ups_quantity * rounds_quantity} - #{sit_ups_quantity * rounds_quantity}"
+    "#{push_ups_quantity * rounds_quantity} - #{sit_ups_quantity * rounds_quantity}\n"\
+    "Отдых: #{rest_period} c."
   end
 
   def more_rounds

@@ -51,6 +51,15 @@ Telegram::Bot::Client.run(config.token) do |bot|
         text: training.describe,
         reply_markup: Menu.new_training
       )
+    when 'Отдых 40с', 'Отдых 50с', 'Отдых 60с'
+      user = User.find_by(uid: message.from.id) || User.create(uid: message.from.id, username: message.from.username)
+      training = user.current_training
+      training.update(rest_period: message.text.gsub(/\D/, ''))
+      bot.api.send_message(
+        chat_id: message.chat.id,
+        text: training.describe,
+        reply_markup: Menu.new_training
+      )
     when 'Начать тренировку'
       user = User.find_by(uid: message.from.id) || User.create(uid: message.from.id, username: message.from.username)
       training = user.current_training
