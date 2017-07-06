@@ -22,5 +22,11 @@ class Menu
     def complete
       MenuConstructor.create([['Готово!']])
     end
+
+    def test_location
+      Telegram::Bot::Types::ReplyKeyboardMarkup.new(
+        keyboard: Telegram::Bot::Types::KeyboardButton.new(text: 'Show me your location', request_location: true)
+      )
+    end
   end
 end
